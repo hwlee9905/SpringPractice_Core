@@ -1,6 +1,7 @@
 package hello.core.singleton;
 
 import hello.core.AppConfig;
+import hello.core.AutoAppConfig;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberServiceImpl;
 import hello.core.order.OrderServiceImpl;
@@ -20,6 +21,10 @@ public class ConfigurationSingletonTest {
 
         MemberRepository memberRepository1 = memberService.getMemberRepository();
         MemberRepository memberRepository2 = orderService.getMemberRepository();
+        //모두 같은 인스턴스를 참고하고 있다.
+        System.out.println("memberService -> memberRepository = " + memberService.getMemberRepository());
+        System.out.println("orderService -> memberRepository = " + orderService.getMemberRepository());
+        System.out.println("memberRepository = " + memberRepository);
         Assertions.assertThat(memberRepository).isSameAs(memberRepository1);
         Assertions.assertThat(memberRepository).isSameAs(memberRepository2);
     }
