@@ -33,7 +33,6 @@ public class SingletonWithPrototypeTest {
     }
     @Scope("singleton")
     static class ClientBean {
-
         @Autowired
         private ObjectProvider<PrototypeBean> prototypeBeanProvider;
         public int logic() {
